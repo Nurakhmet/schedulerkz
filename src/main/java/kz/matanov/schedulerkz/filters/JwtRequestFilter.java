@@ -1,6 +1,7 @@
 package kz.matanov.schedulerkz.filters;
 
 import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.SignatureAlgorithm;
 import kz.matanov.schedulerkz.jwt.JwtTokenGenerator;
 import kz.matanov.schedulerkz.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
