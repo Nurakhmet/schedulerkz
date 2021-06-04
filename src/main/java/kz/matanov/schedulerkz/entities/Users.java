@@ -1,5 +1,8 @@
 package kz.matanov.schedulerkz.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -9,7 +12,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "t_users")
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Users implements UserDetails {
 
 
@@ -29,6 +34,7 @@ public class Users implements UserDetails {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Roles> roles;
+
 
     public Long getId() {
         return id;

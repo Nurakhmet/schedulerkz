@@ -1,7 +1,6 @@
 package kz.matanov.schedulerkz.services.impl;
 
 import kz.matanov.schedulerkz.entities.Roles;
-import kz.matanov.schedulerkz.entities.Users;
 import kz.matanov.schedulerkz.repositories.RolesRepository;
 import kz.matanov.schedulerkz.repositories.UserRepository;
 import kz.matanov.schedulerkz.services.RoleService;
@@ -12,6 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RoleServiceImpl implements RoleService {
@@ -21,7 +21,8 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public Roles getRole(Long id) {
-        return rolesRepository.getOne(id);
+        Optional<Roles> opt = rolesRepository.findById(id);
+        return opt.isPresent()?opt.get():null;
     }
 
     @Override

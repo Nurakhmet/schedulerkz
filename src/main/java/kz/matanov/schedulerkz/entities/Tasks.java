@@ -2,12 +2,19 @@ package kz.matanov.schedulerkz.entities;
 
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.Date;
 
+
 @Entity
 @Table(name = "t_tasks")
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Tasks {
 
     @Id
@@ -18,8 +25,10 @@ public class Tasks {
     @Column(name = "taskText")
     private String taskText;
 
-    @Column(name = "toDate")
-    private Date toDate;
+    @Column(name = "toDateExp")
+    @Temporal(TemporalType.DATE)
+    private Date toDateExp;
+
 
     @Column(name = "done")
     private boolean done;
@@ -43,12 +52,12 @@ public class Tasks {
         this.taskText = taskText;
     }
 
-    public Date getToDate() {
-        return toDate;
+    public Date getToDateExp() {
+        return toDateExp;
     }
 
-    public void setToDate(Date toDate) {
-        this.toDate = toDate;
+    public void setToDateExp(Date toDateExp) {
+        this.toDateExp = toDateExp;
     }
 
     public boolean isDone() {

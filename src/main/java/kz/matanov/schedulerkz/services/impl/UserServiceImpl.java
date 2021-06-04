@@ -1,5 +1,6 @@
 package kz.matanov.schedulerkz.services.impl;
 
+import kz.matanov.schedulerkz.entities.Tasks;
 import kz.matanov.schedulerkz.entities.Users;
 import kz.matanov.schedulerkz.repositories.UserRepository;
 import kz.matanov.schedulerkz.services.UserService;
@@ -9,6 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -44,7 +46,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Users getUser(Long id) {
-        return userRepository.getOne(id);
+        Optional<Users> opt = userRepository.findById(id);
+        return opt.isPresent()?opt.get():null;
     }
 
     @Override

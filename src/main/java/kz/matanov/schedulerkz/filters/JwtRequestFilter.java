@@ -17,7 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties.Value;
 
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
@@ -27,6 +27,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
     @Autowired
     private JwtTokenGenerator jwtTokenGenerator;
+
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {

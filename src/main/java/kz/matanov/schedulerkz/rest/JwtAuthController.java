@@ -5,6 +5,8 @@ import kz.matanov.schedulerkz.models.JwtRequest;
 import kz.matanov.schedulerkz.models.JwtResponse;
 import kz.matanov.schedulerkz.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -28,6 +30,8 @@ public class JwtAuthController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    Logger logger = LoggerFactory.getLogger(MainRestController.class);
+
     @RequestMapping(value = "/auth")
     public ResponseEntity<?> auth(@RequestBody JwtRequest request) throws Exception {
 
@@ -38,7 +42,8 @@ public class JwtAuthController {
 
         final String token = jwtTokenGenerator.generateToken(userDetails);
 
-        System.out.println(token);
+//        System.out.println(token);
+        logger.info("TOKEN"+token);
         return ResponseEntity.ok(new JwtResponse(token));
     }
 
