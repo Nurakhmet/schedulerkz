@@ -2,6 +2,9 @@
 Application about scheduler, in this app User can use all CRUD operations on Tasks, and some changes in Profile page.
 This application used Spring Security to divide into users by their roles.
 
+# front-end
+#### ReactJS link [GitHub repo](https://github.com/Nurakhmet/schedulerkz_ReactJS "GitHub repo")
+
 # Getting started
 You need Java 8 installed.
 ```html
